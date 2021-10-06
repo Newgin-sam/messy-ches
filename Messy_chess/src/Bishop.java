@@ -18,7 +18,7 @@ public class Bishop extends ChessPiece{
     		if(initPos[0]<finalPos[0]) {
     			System.out.println("bishop entered up");
     			int j= initPos[1];
-    			for(int i=initPos[0]+1; i<finalPos[0]; i++) {
+    			for(int i=initPos[0]+1; i<=finalPos[0]; i++) {
     				if(initPos[1]<finalPos[1]) {
     					j=j+1;
     					System.out.println("bishop entered"+i+j);
@@ -28,7 +28,7 @@ public class Bishop extends ChessPiece{
     					return true;
     					    					
     				}
-    				else if(initPos[1]>finalPos[1]) {
+    				else if(initPos[1]>=finalPos[1]) {
     					j=j-1;
 						System.out.println("bishop entered"+i+j);
 						if(board.getPiece(i, j) != null) {
@@ -40,7 +40,7 @@ public class Bishop extends ChessPiece{
     		}else if(initPos[0]>finalPos[0]) {
     			System.out.println("bishop entered down"+initPos[0]+finalPos[0]+initPos[1]+finalPos[1]);
     			int j= initPos[1];
-    			for(int i=initPos[0]-1; i>finalPos[0]; i--) {
+    			for(int i=initPos[0]-1; i>=finalPos[0]; i--) {
     				if(initPos[1]<finalPos[1]) {
     					j=j+1;    					
 						System.out.println("bishop entered"+i+j);
@@ -50,7 +50,7 @@ public class Bishop extends ChessPiece{
 						return true;
     					
     				}
-    				else if(initPos[1]>finalPos[1]) {
+    				else if(initPos[1]>=finalPos[1]) {
     					j=j-1;
 						System.out.println("bishop entered"+i+j);
 						if(board.getPiece(i, j) != null) {

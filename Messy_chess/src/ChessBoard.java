@@ -80,7 +80,7 @@ class ChessBoard{
 		        System.out.println(Future);
 	        
 	        
-				if( (Future == null || current.color != Future.color) && current !=null && !(to[0] == from[0] && to[1] == from[1]) && current.isValidMove(from, to, this.board)) {
+				if( current != null && (Future == null || current.color != Future.color) && current !=null && !(to[0] == from[0] && to[1] == from[1]) && current.isValidMove(from, to, this.board)) {
 					System.out.println(true);
 					board[from[0]][from[1]] = null;
 					board[to[0]][to[1]] = current;

@@ -19,9 +19,9 @@ public class Main {
         board.move("a3", "e3");
         board.move("d7", "d5");
         board.move("c8", "d7");
-//        board.move("e3", "e2");
-//        System.out.println(board.getPiece(2,4).name);
+        board.move("e5", "e4");
         System.out.println(board.toString());
+//        System.out.println(board.getPiece(2,4).name);
 //        board.move("a7", "a6");
 //        System.out.println(board.toString());
 //        board.move("a1", "a2");
