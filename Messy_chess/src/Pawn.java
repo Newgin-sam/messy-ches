@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Pawn extends ChessPiece{
 
     public Pawn(ChessBoard board,Color color){
@@ -56,6 +58,11 @@ public class Pawn extends ChessPiece{
 	    	}
     	
     	return false;
+    }
+    
+    public ArrayList<String> legalMoves(){
+    	ArrayList moves = new ArrayList();
+    	return moves;
     }
 
     public String toString(){

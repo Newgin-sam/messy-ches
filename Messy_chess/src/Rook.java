@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Rook extends ChessPiece{
 
@@ -56,6 +56,11 @@ public class Rook extends ChessPiece{
 		}
     	
     	return false;
+    }
+    
+    public ArrayList<String> legalMoves(){
+    	ArrayList moves = new ArrayList();
+    	return moves;
     }
 
     public String toString(){

@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Queen extends ChessPiece{
 
@@ -7,6 +7,10 @@ public class Queen extends ChessPiece{
     }
     public boolean isValidMove(int [] initPos,int [] finalPos ) {
     	return false;
+    }
+    public ArrayList<String> legalMoves(){
+    	ArrayList moves = new ArrayList();
+    	return moves;
     }
 
     public String toString(){

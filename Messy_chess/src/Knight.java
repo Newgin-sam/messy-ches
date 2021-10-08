@@ -1,11 +1,14 @@
-
+import java.util.ArrayList;
 
 public class Knight extends ChessPiece{
 
     public Knight(ChessBoard board,Color color){
     	super(board,color);
     }
-    
+    public ArrayList<String> legalMoves(){
+    	ArrayList moves = new ArrayList();
+    	return moves;
+    }
     public boolean isValidMove(int [] initPos,int [] finalPos) {
     	return false;
     }

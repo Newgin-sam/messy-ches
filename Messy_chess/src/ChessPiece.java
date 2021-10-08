@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 abstract class ChessPiece {
     protected ChessBoard board;
     public enum Color {WHITE, BLACK}
@@ -19,7 +21,12 @@ abstract class ChessPiece {
     }
     public abstract boolean isValidMove(int [] initPos,int [] finalPos);
 
-    public String getPosition(){return null;}
+    public String getPosition(){
+    	int col = this.column + 97;
+    	String position = (char) col + String.valueOf(this.row);
+    	
+    	return position;
+    }
 
 
     public Color getColor(){ return  this.color;}
@@ -38,6 +45,8 @@ abstract class ChessPiece {
     		
     	}
     }
+    
+    public abstract ArrayList<String> legalMoves();
 
     abstract public String toString();
 

@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class King extends ChessPiece{
 
@@ -20,6 +20,12 @@ public class King extends ChessPiece{
     	}
     	return false;
     }
+    
+    public ArrayList<String> legalMoves(){
+    	ArrayList moves = new ArrayList();
+    	return moves;
+    }
+    
     
 //    public void setPosition(String position) {
 //    	this.column = position.charAt(1)- 49;

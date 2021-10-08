@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 public class Bishop extends ChessPiece{
 
@@ -64,6 +64,10 @@ public class Bishop extends ChessPiece{
     	}
     	
     	return false;
+    }
+    public ArrayList<String> legalMoves(){
+    	ArrayList moves = new ArrayList();
+    	return moves;
     }
     public String toString(){
         if (this.color == color.WHITE) {
