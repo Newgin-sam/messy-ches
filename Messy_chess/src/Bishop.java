@@ -1,18 +1,18 @@
+
+
 public class Bishop extends ChessPiece{
 
-    public Bishop(Color color){
-        this.color = color;
-        this.name = "bishop";
+    public Bishop(ChessBoard board,Color color){
+    	super(board,color);
     }
-
-    public boolean isValidMove(int [] initPos,int [] finalPos , ChessPiece[][] initboard) {
+    
+    public boolean isValidMove(int [] initPos,int [] finalPos) {
     	
-    	ChessBoard board = new ChessBoard(initboard);
     	System.out.println("hello bishop"+""+initPos[0] +" "+finalPos[0] + initPos[1] +" "+finalPos[1] );
     	
-    	ChessPiece current = board.getPiece(initPos[0] , initPos[1]);
-    	ChessPiece Future = board.getPiece(finalPos[0], finalPos[1]);
-    	
+//    	ChessPiece current = this.board.getPiece(initPos[0] , initPos[1]);
+//    	ChessPiece Future = this.board.getPiece(finalPos[0], finalPos[1]);
+//    	
     	if(Math.abs(initPos[0]-finalPos[0]) == Math.abs(initPos[1]-finalPos[1])) {
     		System.out.println("bishop entered");
     		if(initPos[0]<finalPos[0]) {
@@ -22,7 +22,7 @@ public class Bishop extends ChessPiece{
     				if(initPos[1]<finalPos[1]) {
     					j=j+1;
     					System.out.println("bishop entered"+i+j);
-    					if(board.getPiece(i, j) != null) {
+    					if(this.board.getPiece(i, j) != null) {
     						return false;
     					}
     					return true;
@@ -31,7 +31,7 @@ public class Bishop extends ChessPiece{
     				else if(initPos[1]>=finalPos[1]) {
     					j=j-1;
 						System.out.println("bishop entered"+i+j);
-						if(board.getPiece(i, j) != null) {
+						if(this.board.getPiece(i, j) != null) {
 							return false;
 						}
 						return true;
@@ -44,7 +44,7 @@ public class Bishop extends ChessPiece{
     				if(initPos[1]<finalPos[1]) {
     					j=j+1;    					
 						System.out.println("bishop entered"+i+j);
-						if(board.getPiece(i, j) != null) {
+						if(this.board.getPiece(i, j) != null) {
 							return false;
 						}
 						return true;
@@ -53,7 +53,7 @@ public class Bishop extends ChessPiece{
     				else if(initPos[1]>=finalPos[1]) {
     					j=j-1;
 						System.out.println("bishop entered"+i+j);
-						if(board.getPiece(i, j) != null) {
+						if(this.board.getPiece(i, j) != null) {
 							return false;
 						}
 						return true;	

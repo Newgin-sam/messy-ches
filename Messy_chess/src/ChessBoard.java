@@ -9,41 +9,41 @@ class ChessBoard{
     }
 
     public void initialize(){
-        board[0][0] = new Rook(ChessPiece.Color.WHITE);
-        board[0][1] = new Knight(ChessPiece.Color.WHITE);
-        board[0][2] = new Bishop(ChessPiece.Color.WHITE);
-        board[0][3] = new Queen(ChessPiece.Color.WHITE);
-        board[0][4] = new King(ChessPiece.Color.WHITE);
-        board[0][5] = new Bishop(ChessPiece.Color.WHITE);
-        board[0][6] = new Knight(ChessPiece.Color.WHITE);
-        board[0][7] = new Rook(ChessPiece.Color.WHITE);
-        board[1][0] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][1] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][2] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][3] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][4] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][5] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][6] = new Pawn(ChessPiece.Color.WHITE);
-        board[1][7] = new Pawn(ChessPiece.Color.WHITE);
+    	this.placePiece(new Rook(this,ChessPiece.Color.WHITE), "a1");
+    	this.placePiece(new Rook(this,ChessPiece.Color.WHITE), "h1");
+    	this.placePiece(new Knight(this,ChessPiece.Color.WHITE), "b1");
+    	this.placePiece(new Knight(this,ChessPiece.Color.WHITE), "g1");
+    	this.placePiece(new Bishop(this,ChessPiece.Color.WHITE), "c1");
+    	this.placePiece(new Bishop(this,ChessPiece.Color.WHITE), "f1");
+    	this.placePiece(new Queen(this,ChessPiece.Color.WHITE), "d1");
+    	this.placePiece(new King(this,ChessPiece.Color.WHITE), "e1");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "a2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "b2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "c2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "d2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "e2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "f2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "g2");
+    	this.placePiece(new Pawn(this,ChessPiece.Color.WHITE), "h2");
+
         
-//        board[2][1] = new Pawn(ChessPiece.Color.WHITE);
+        this.placePiece(new Rook(this,ChessPiece.Color.BLACK), "a8");
+        this.placePiece(new Rook(this,ChessPiece.Color.BLACK), "h8");
+        this.placePiece(new Knight(this,ChessPiece.Color.BLACK), "b8");
+        this.placePiece(new Knight(this,ChessPiece.Color.BLACK), "g8");
+        this.placePiece(new Bishop(this,ChessPiece.Color.BLACK), "c8");
+        this.placePiece(new Bishop(this,ChessPiece.Color.BLACK), "f8");
+        this.placePiece(new Queen(this,ChessPiece.Color.BLACK), "d8");
+        this.placePiece(new King(this,ChessPiece.Color.BLACK), "e8");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "a7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "b7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "c7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "d7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "e7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "f7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "g7");
+        this.placePiece(new Pawn(this,ChessPiece.Color.BLACK), "h7");
         
-        board[7][0] = new Rook(ChessPiece.Color.BLACK);
-        board[7][1] = new Knight(ChessPiece.Color.BLACK);
-        board[7][2] = new Bishop(ChessPiece.Color.BLACK);
-        board[7][3] = new Queen(ChessPiece.Color.BLACK);
-        board[7][4] = new King(ChessPiece.Color.BLACK);
-        board[7][5] = new Bishop(ChessPiece.Color.BLACK);
-        board[7][6] = new Knight(ChessPiece.Color.BLACK);
-        board[7][7] = new Rook(ChessPiece.Color.BLACK);
-        board[6][0] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][1] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][2] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][3] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][4] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][5] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][6] = new Pawn(ChessPiece.Color.BLACK);
-        board[6][7] = new Pawn(ChessPiece.Color.BLACK);
     }
 
     public ChessPiece getPiece(int row, int col){
@@ -51,12 +51,43 @@ class ChessBoard{
     	
     	return current;
     }
+    
+    public ChessPiece getPiece(String position){
+    	try {
+    		ChessPiece current;
+    		int row = position.charAt(1)- 49;
+    		int col = position.charAt(0) - 97;
+    		if(0<row && row<8 && 0<col && col<8 && board[row][col] != null) {
+    			current = board[row][col];
+    		}
+    		else {
+    			throw new IllegalPositionException();
+    		}
+    		return current;	    	
+    	}
+    	catch (IllegalPositionException e) {
+    		System.out.println(e);
+    	}
+		return null;
+	}
     public ChessPiece[][] getBoard(){
     	System.out.println("Inside getboard");
     	return board;
     }
 
-    public boolean placePiece(ChessPiece piece, String position){return true;}
+    public boolean placePiece(ChessPiece piece, String position){
+    	try {
+    		piece.setPosition(position);
+    		if(board[piece.row][piece.column] == null) {    	
+    			board[piece.row][piece.column] = piece;
+    			return true;
+    		}
+    	}
+    	catch(IllegalPositionException e){
+    		System.out.println(e);
+    	}
+    	return false;	
+    }
 
     public void move(String fromPosition, String toPosition) throws IllegalMoveException {
         int[] from = new int[2];
@@ -80,7 +111,7 @@ class ChessBoard{
 		        System.out.println(Future);
 	        
 	        
-				if( current != null && (Future == null || current.color != Future.color) && current !=null && !(to[0] == from[0] && to[1] == from[1]) && current.isValidMove(from, to, this.board)) {
+				if( current != null && (Future == null || current.color != Future.color) && current !=null && !(to[0] == from[0] && to[1] == from[1]) && current.isValidMove(from, to)) {
 					System.out.println(true);
 					board[from[0]][from[1]] = null;
 					board[to[0]][to[1]] = current;

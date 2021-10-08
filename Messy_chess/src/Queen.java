@@ -1,10 +1,11 @@
+
+
 public class Queen extends ChessPiece{
 
-    public Queen(Color color){
-        this.color = color;
-        this.name = "queen";
+    public Queen(ChessBoard board,Color color){
+    	super(board,color);
     }
-    public boolean isValidMove(int [] initPos,int [] finalPos , ChessPiece[][] board) {
+    public boolean isValidMove(int [] initPos,int [] finalPos ) {
     	return false;
     }
 

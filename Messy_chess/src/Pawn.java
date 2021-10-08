@@ -1,18 +1,15 @@
 public class Pawn extends ChessPiece{
 
-    public Pawn(Color color){
-        this.color = color;
-        this.name = "pawn";
+    public Pawn(ChessBoard board,Color color){
+    	super(board,color);
     }
 
     //
     
-    public boolean isValidMove(int [] initPos,int [] finalPos , ChessPiece[][] initboard) {
+    public boolean isValidMove(int [] initPos,int [] finalPos) {
     	
-    	ChessBoard board = new ChessBoard(initboard);
-    	
-    	ChessPiece current = board.getPiece(initPos[0] , initPos[1]);
-    	ChessPiece Future = board.getPiece(finalPos[0], finalPos[1]);
+    	ChessPiece current = this.board.getPiece(initPos[0] , initPos[1]);
+    	ChessPiece Future = this.board.getPiece(finalPos[0], finalPos[1]);
     	System.out.println("hello pawn"+""+Future );
     	
     		
@@ -42,16 +39,16 @@ public class Pawn extends ChessPiece{
 	    	}
 	    	if(Math.abs(initPos[0]-finalPos[0]) == 2 && Math.abs(initPos[1]-finalPos[1]) == 0 && (initPos[0] == 1 || initPos[0] == 6)) {
 	    		
-	    		if(board.getPiece(initPos[0] , initPos[1]).color == ChessPiece.Color.WHITE) {
+	    		if(this.board.getPiece(initPos[0] , initPos[1]).color == ChessPiece.Color.WHITE) {
 	    			if(initPos[0] < finalPos[0]) {
-	    				if(board.getPiece(finalPos[0] - 1, finalPos[1]) == null) {
+	    				if(this.board.getPiece(finalPos[0] - 1, finalPos[1]) == null) {
 	    					return true;	    					
 	    				}
 	    			}
 	    		}
-	    		if(board.getPiece(initPos[0] , initPos[1]).color == ChessPiece.Color.BLACK) {
+	    		if(this.board.getPiece(initPos[0] , initPos[1]).color == ChessPiece.Color.BLACK) {
 	    			if(initPos[0] > finalPos[0]) {
-	    				if(board.getPiece(finalPos[0] + 1 , finalPos[1]) == null) {
+	    				if(this.board.getPiece(finalPos[0] + 1 , finalPos[1]) == null) {
 	    					return true;	    					
 	    				}
 	    			}

@@ -1,27 +1,26 @@
+
+
 public class Rook extends ChessPiece{
 
-    public Rook(Color color){
-        this.color = color;
-        this.name = "rook";
-//        this.board = board;
+    public Rook(ChessBoard board,Color color){
+    	super(board,color);
     }
-
+    
     public boolean isValidMove(){
         this.getPosition();
         return true;
     }
-    public boolean isValidMove(int [] initPos,int [] finalPos , ChessPiece[][] initboard) {
+    public boolean isValidMove(int [] initPos,int [] finalPos ) {
     	
-    	ChessBoard board = new ChessBoard(initboard);
     	System.out.println("hello rook"+""+initPos[0] +" "+finalPos[0] + initPos[1] +" "+finalPos[1] );
     	
-    	ChessPiece current = board.getPiece(initPos[0] , initPos[1]);
-    	ChessPiece Future = board.getPiece(finalPos[0], finalPos[1]);
+    	ChessPiece current = this.board.getPiece(initPos[0] , initPos[1]);
+    	ChessPiece Future = this.board.getPiece(finalPos[0], finalPos[1]);
     	
 		if(initPos[0] == finalPos[0] ) {
 			if(initPos[1]<finalPos[1]) {
 				for(int i=initPos[1] + 1; i < finalPos[1];i++) {
-					if(board.getPiece(initPos[0], i) != null) {
+					if(this.board.getPiece(initPos[0], i) != null) {
 						return false;
 					}
 				}
@@ -30,7 +29,7 @@ public class Rook extends ChessPiece{
 			else if(initPos[1] > finalPos[1]) {
 				
 				for(int i=initPos[1] - 1; i > finalPos[1];i--) {
-					if(board.getPiece(initPos[0], i) != null) {
+					if(this.board.getPiece(initPos[0], i) != null) {
 						return false;
 					}
 				}
@@ -40,7 +39,7 @@ public class Rook extends ChessPiece{
 		else if(initPos[1] == finalPos[1]) {
 			if(initPos[0]<finalPos[0]) {
 				for(int i=initPos[0] + 1; i<finalPos[0]; i++) {
-					if(board.getPiece(i, initPos[0]) != null) {
+					if(this.board.getPiece(i, initPos[0]) != null) {
 						return false;
 					}
 				}
@@ -48,7 +47,7 @@ public class Rook extends ChessPiece{
 			}
 			else if(initPos[0] > finalPos[0]) {
 				for(int i=initPos[0] - 1; i > finalPos[0]; i--) {
-					if(board.getPiece(i, initPos[0]) != null) {
+					if(this.board.getPiece(i, initPos[0]) != null) {
 						return false;
 					}
 				}

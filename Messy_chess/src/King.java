@@ -1,17 +1,16 @@
+
+
 public class King extends ChessPiece{
 
-    public King(Color color){
-        this.color = color;
-        this.name = "king";
+    public King(ChessBoard board,Color color){
+    	super(board,color);
     }
-
-    public boolean isValidMove(int [] initPos,int [] finalPos , ChessPiece[][] initboard) {
+    public boolean isValidMove(int [] initPos,int [] finalPos) {
     	
-    	ChessBoard board = new ChessBoard(initboard);
     	System.out.println("hello king"+""+initPos[0] +" "+finalPos[0] + initPos[1] +" "+finalPos[1] );
     	
-    	ChessPiece current = board.getPiece(initPos[0] , initPos[1]);
-    	ChessPiece Future = board.getPiece(finalPos[0], finalPos[1]);
+    	ChessPiece current = this.board.getPiece(initPos[0] , initPos[1]);
+    	ChessPiece Future = this.board.getPiece(finalPos[0], finalPos[1]);
     	
     	System.out.println(current.name);
     	
@@ -21,6 +20,11 @@ public class King extends ChessPiece{
     	}
     	return false;
     }
+    
+//    public void setPosition(String position) {
+//    	this.column = position.charAt(1)- 49;
+//        this.row = position.charAt(0) - 97;
+//    }
     public String toString(){
         if (this.color == color.WHITE) {
             return "\u2654";

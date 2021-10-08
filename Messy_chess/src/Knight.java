@@ -1,11 +1,12 @@
+
+
 public class Knight extends ChessPiece{
 
-    public Knight(Color color){
-        this.color = color;
-        this.name = "knight";
+    public Knight(ChessBoard board,Color color){
+    	super(board,color);
     }
-
-    public boolean isValidMove(int [] initPos,int [] finalPos , ChessPiece[][] board) {
+    
+    public boolean isValidMove(int [] initPos,int [] finalPos) {
     	return false;
     }
     public String toString(){
